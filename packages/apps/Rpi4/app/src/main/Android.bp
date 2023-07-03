@@ -1,0 +1,22 @@
+android_app {
+    name: "Rpi4",
+
+    certificate: "platform",
+
+    //privileged: true,
+
+    platform_apis: true,
+
+    srcs: ["java/**/*.java",
+            "java/**/*.kt"
+    ],
+
+    resource_dirs: ["res"],
+
+    static_libs: [
+        "androidx-constraintlayout_constraintlayout-solver",
+        "androidx-constraintlayout_constraintlayout",
+        "com.google.android.material_material",
+        "vendor.demo.rpi4-V1-java",
+    ],
+}

@@ -1,0 +1,22 @@
+cc_binary {
+    name: "vendor.demo.rpi4-service",
+    vendor: true,
+    relative_install_path: "hw",
+    init_rc: ["vendor.demo.rpi4.service.rc"],
+    vintf_fragments: ["vendor.demo.rpi4-service.xml"],
+    srcs: [
+        "Rpi4Config.cpp",
+        "Rpi4.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+	    "vendor.demo.rpi4-V1-ndk",
+        "liblog",
+        "libhardware",
+        "libbinder",
+        "libutils",
+    ],
+}
+

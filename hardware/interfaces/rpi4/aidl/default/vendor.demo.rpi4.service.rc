@@ -1,0 +1,4 @@
+service vendor.demo.rpi4.service /vendor/bin/hw/vendor.demo.rpi4-service
+    class hal
+    user root
+    group root

@@ -1,0 +1,25 @@
+aidl_interface {
+    name: "vendor.demo.rpi4",
+    vendor_available: true,
+    srcs: ["vendor/demo/rpi4/*.aidl"],
+    stability: "vintf",
+    backend: {
+        java: {
+            sdk_version: "module_current",
+        },
+        ndk: {
+            vndk: {
+                enabled: false,
+            },
+        },
+        cpp: {
+            enabled: false,
+        },
+    },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+}
