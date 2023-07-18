@@ -43,6 +43,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        aidl true
     }
 }
 
@@ -53,7 +54,11 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation files('libs/vendor.demo.rpi4-V1-java.jar')
-    implementation files('libs/framework.jar')
+    implementation files('libs/android.hardware.automotive.vehicle-V1-java.jar')
+    compileOnly files('libs/framework.jar')
+    compileOnly files('libs/android.car.jar')
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

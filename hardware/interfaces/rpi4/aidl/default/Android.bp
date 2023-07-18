@@ -17,6 +17,7 @@ cc_binary {
         "libhardware",
         "libbinder",
         "libutils",
+        "libncurses"
     ],
 }
 

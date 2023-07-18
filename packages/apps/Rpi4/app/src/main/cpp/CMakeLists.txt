@@ -65,4 +65,5 @@ include_directories(
         /media/jijith/SSD/AndroidAutomotive/system/core/liblog/include/
         /media/jijith/SSD/AndroidAutomotive/frameworks/native/include/
         /media/jijith/SSD/AndroidAutomotive/system/core/libutils/include
+        /media/jijith/SSD/AndroidAutomotive13/external/libncurses/include
 )

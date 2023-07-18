@@ -31,20 +31,22 @@ namespace rpi4 {
         /**
          * Method to set GPIO pin.
          * @param in_pin pin number.
-         * @param in_mode mode of the pin.
+         * @param in_status status of the pin ON or OFF.
          * @param _aidl_return true or false.
          * @return scoped status.
          */
         ::ndk::ScopedAStatus
-        setGpio(::aidl::vendor::demo::rpi4::Pin in_pin, int32_t in_status, bool *_aidl_return);
+        setGpio(::aidl::vendor::demo::rpi4::Pin in_pin,
+                ::aidl::vendor::demo::rpi4::PinStatus in_status, bool *_aidl_return);
 
         /**
          * Method to get the GPIO pin
          * @param in_pin pin number.
-         * @param _aidl_return true or false.
+         * @param _aidl_return current pin status ON or OFF.
          * @return scoped status.
          */
-        ::ndk::ScopedAStatus getGpio(::aidl::vendor::demo::rpi4::Pin in_pin, int32_t *_aidl_return);
+        ::ndk::ScopedAStatus getGpio(::aidl::vendor::demo::rpi4::Pin in_pin,
+                                     ::aidl::vendor::demo::rpi4::PinStatus *_aidl_return);
 
         /**
          * Method to set PWM pin.

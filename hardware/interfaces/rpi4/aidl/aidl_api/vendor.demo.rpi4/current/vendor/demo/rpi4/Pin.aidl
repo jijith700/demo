@@ -19,6 +19,8 @@ package vendor.demo.rpi4;
 @VintfStability
 enum Pin {
 
+    GPIO_ZERO = 0,
+
     GPIO_ONE = 1,
 
     GPIO_TWO = 2,
@@ -78,11 +80,5 @@ enum Pin {
     PWM_ZERO = 0,
 
     PWM_ONE = 1,
-
-    INPUT = 0,
-
-    OUTPUT  = 1,
-
-    PWM_OUTPUT = 2,
   
-} 
+}

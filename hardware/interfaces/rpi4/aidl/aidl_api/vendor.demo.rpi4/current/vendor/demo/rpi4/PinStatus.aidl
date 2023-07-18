@@ -17,12 +17,10 @@
 package vendor.demo.rpi4;
 
 @VintfStability
-enum PinMode {
+enum PinStatus {
 
-    INPUT = 0,
+    LOW = 0,
 
-    OUTPUT  = 1,
+    HIGH  = 1,
 
-    PWM_OUTPUT = 2,
-  
-}
+} 

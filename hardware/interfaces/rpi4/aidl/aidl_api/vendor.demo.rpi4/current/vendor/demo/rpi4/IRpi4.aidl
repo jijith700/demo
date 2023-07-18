@@ -16,17 +16,18 @@
 
 package vendor.demo.rpi4;
 
-import vendor.demo.rpi4.PinMode;
 import vendor.demo.rpi4.Pin;
+import vendor.demo.rpi4.PinMode;
+import vendor.demo.rpi4.PinStatus;
 
 @VintfStability
 interface IRpi4 {
 
     boolean configPin(Pin pin, PinMode mode);
 
-    boolean setGpio(Pin pin, int status);
+    boolean setGpio(Pin pin, PinStatus status);
 
-    int getGpio(Pin pin);
+    PinStatus getGpio(Pin pin);
 
     boolean setPwm(Pin pin, int period, int dutyCycle);
 

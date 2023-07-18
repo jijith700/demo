@@ -75,18 +75,21 @@ int Rpi4Config::GetGpio(int pin) {
     std::fstream read_strm;
     std::string value_path = std::string(kGpioSysfsPath) + std::string(kGpio) + std::to_string(pin)
                              + std::string(kValue);
-    ALOGI("Rpi4Config: GetPin-> value_path %s", value_path.c_str());
+    //ALOGI("Rpi4Config: GetPin-> value_path %s", value_path.c_str());
 
     read_strm.open(value_path.c_str(), std::ios_base::in);
     if (read_strm.is_open()) {
-        ALOGI("Rpi4Config: GetPin-> read_strm opened");
-        char c;
+        //ALOGI("Rpi4Config: GetPin-> read_strm opened");
+        std::string result;
+        char read;
+        char* end;
         while (!read_strm.eof()) {
-            read_strm.get(c);
-            std::cout << c;
+            read_strm.get(read);
+            //ALOGD("Rpi4Config: GetPin-> read value %c", read);
+            result += read;
         }
         read_strm.close();
-        return int(c);
+        return std::strtol(result.c_str(), &end, 10);
     }
     ALOGE("Rpi4Config: GetPin-> Failed to open read_strm");
     return -1;
@@ -177,6 +180,7 @@ bool Rpi4Config::ChangeDutyCycle(int pin, int duty_cycle) {
         cycle_strm.write(cycle, static_cast<int>(strlen(cycle)));
         cycle_strm.close();
         ALOGI("Rpi4Config: ChangeDutyCycle-> cycle_path closed");
+        return true;
     } else {
         ALOGE("Rpi4Config: ChangeDutyCycle-> Failed to open cycle_path");
     }

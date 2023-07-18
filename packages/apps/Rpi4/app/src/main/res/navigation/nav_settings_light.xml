@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_settings_light"
+    app:startDestination="@id/lightFragment">
+
+    <fragment
+        android:id="@+id/lightFragment"
+        android:name="com.demo.rpi4.LightFragment"
+        android:label="fragment_light"
+        tools:layout="@layout/fragment_light" />
+</navigation>

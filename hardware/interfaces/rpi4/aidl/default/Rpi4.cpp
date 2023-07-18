@@ -44,9 +44,10 @@ namespace aidl::vendor::demo::rpi4 {
      * @return scoped status.
      */
     ::ndk::ScopedAStatus
-    Rpi4::setGpio(::aidl::vendor::demo::rpi4::Pin in_pin, int32_t in_status, bool *_aidl_return) {
+    Rpi4::setGpio(::aidl::vendor::demo::rpi4::Pin in_pin,
+                  ::aidl::vendor::demo::rpi4::PinStatus in_status, bool *_aidl_return) {
         ALOGI("Rpi4: setGpio");
-        bool status = Rpi4Config::SetGpio(static_cast<int>(in_pin), in_status);
+        bool status = Rpi4Config::SetGpio(static_cast<int>(in_pin), static_cast<int>(in_status));
         *_aidl_return = status;
         if (status)
             return ndk::ScopedAStatus::ok();
@@ -62,11 +63,13 @@ namespace aidl::vendor::demo::rpi4 {
      * @return scoped status.
      */
     ::ndk::ScopedAStatus
-    Rpi4::getGpio(::aidl::vendor::demo::rpi4::Pin in_pin, int32_t *_aidl_return) {
-        ALOGI("Rpi4: getGpio");
+    Rpi4::getGpio(::aidl::vendor::demo::rpi4::Pin in_pin,
+                  ::aidl::vendor::demo::rpi4::PinStatus *_aidl_return) {
+        //ALOGI("Rpi4: getGpio");
         int status = Rpi4Config::GetGpio(static_cast<int>(in_pin));
-        *_aidl_return = status;
-        if (status)
+        *_aidl_return = static_cast<PinStatus>(status);
+        //ALOGD("Rpi4: getGpio status=%d", status);
+        if (status == 0 || status == 1)
             return ndk::ScopedAStatus::ok();
         else {
             return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -138,5 +141,4 @@ namespace aidl::vendor::demo::rpi4 {
 
         return ndk::ScopedAStatus();
     }
-
 }
