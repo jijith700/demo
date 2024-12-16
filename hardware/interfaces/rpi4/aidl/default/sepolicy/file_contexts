@@ -1,1 +1,0 @@
-/(system/vendor|vendor)/bin/hw/vendor\.demo\.rpi4-service      u:object_r:hal_rpi4_demo_exec:s0
